@@ -1,0 +1,86 @@
+% Ejercicio 1 **************************************
+dtdy = t/y;
+
+end
+
+%--------------------------------------------------
+function [ t,y ] = CallODE1( )
+    
+tspan = [0 10];
+
+y0 = 1;
+
+[t, y ]= ode113(@ODE1,tspan,y0);
+
+plot(t,y)
+
+end
+
+
+% Ejercicio 2 ********************************
+function [ dtdy ] = ODE2( t,y )
+
+a = 20;
+g = 1;
+
+%Ecuación Difrencial
+dtdy = a*y - g*y.^2;
+
+end
+
+%------------------------------------------------
+function [ t,y ] = CallODE2( )
+    
+tspan = [0 1];
+
+y0 = 10;
+
+[t, y ]= ode113(@ODE2,tspan,y0);
+
+plot(t,y)
+
+end
+
+
+
+% Ejercicio 3 *****************
+function [ dtdy ] = ODE3( t,y )
+
+dtdy = exp(2*y)*sin(t);
+
+end
+
+%--------------------------------------------------
+function [ t,y ] = CallODE3( )
+    
+tspan = [0 1.5];
+
+y0 = 0;
+
+[t, y ]= ode113(@ODE3,tspan,y0);
+
+plot(t,y)
+
+end
+
+
+% Ejercicio 4 *******************
+function [ dxdy ] = ODE4( x,y )
+
+dxdy = exp(x)/(2*y);
+
+end
+
+
+%----------------------------------------------
+function [ x,y ] = CallODE4( )
+    
+tspan = [0 10];
+
+y0 = 1;
+
+[x, y ]= ode113(@ODE4,tspan,y0);
+
+plot(x,y)
+
+end
